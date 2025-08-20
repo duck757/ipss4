@@ -1,0 +1,24 @@
+modules = ["web", "nodejs-20"]
+run = "npx serve ."
+
+[nix]
+channel = "stable-25_05"
+
+[deployment]
+run = ["sh", "-c", ""]
+
+[workflows]
+runButton = "Serve Static Files"
+
+[[workflows.workflow]]
+name = "Serve Static Files"
+author = 40349993
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx serve ."
+
+[[ports]]
+localPort = 3000
+externalPort = 80
